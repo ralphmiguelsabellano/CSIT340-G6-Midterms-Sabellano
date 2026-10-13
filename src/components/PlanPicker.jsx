@@ -1,33 +1,33 @@
 import { useState } from "react";
-
+import Summary from "./Summary";
+import PlanCard from "./PlanCard";
+ 
 function PlanPicker() {
   const [seats, setSeats] = useState(1);
   const [months, setMonths] = useState(1);
-
+ 
   function handleAddSeat() {
     setSeats(seats + 1);
   }
-
+ 
   function handleAddMonth() {
     setMonths(months + 1);
   }
-
+ 
   function handleReset() {
     setSeats(1);
     setMonths(1);
   }
-
+ 
   return (
     <>
       <div className="flex items-end justify-between bg-[#000000] px-20 py-12 text-[#EEEEEE]">
-        <header>
-          <h2 className="text-6xl font-bold">Build your plan</h2>
-          <p className="mt-4 text-3xl text-[#CB2957]">
-            Seats: {seats} | Months: {months}
-          </p>
-          <p className="mt-2 text-xl">Quote for RALPH MIGUEL F. SABELLANO </p>
-        </header>
-
+        <Summary
+          seats={seats}
+          months={months}
+          customer="RALPH MIGUEL F. SABELLANO"
+        />
+ 
         <div className="flex gap-4">
           <button
             className="cursor-pointer rounded-lg bg-[#CB2957] px-8 py-3 text-xl font-bold text-[#EEEEEE]"
@@ -49,10 +49,35 @@ function PlanPicker() {
           </button>
         </div>
       </div>
-
-      
+ 
+      <main className="grid grid-cols-3 gap-8 px-20 pt-10">
+        <PlanCard
+          name="Starter"
+          price={199}
+          storage="10 GB"
+          support="Email"
+          seats={seats}
+          months={months}
+        />
+        <PlanCard
+          name="Team"
+          price={499}
+          storage="100 GB"
+          support="Chat"
+          seats={seats}
+          months={months}
+        />
+        <PlanCard
+          name="Business"
+          price={999}
+          storage="1000 GB"
+          support="Phone"
+          seats={seats}
+          months={months}
+        />
+      </main>
     </>
   );
 }
-
+ 
 export default PlanPicker;

@@ -1,5 +1,7 @@
 import { useState } from "react";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+
 
 function App() {
   const [seats, setSeats] = useState(1);
@@ -53,6 +55,7 @@ function App() {
         </div>
       </div>
 
+
       <main className="grid grid-cols-3 gap-8 px-20 pt-10">
         <div className="overflow-hidden rounded-xl border-2 border-[#000000] bg-[#EEEEEE]">
           <div className="p-8">
@@ -95,9 +98,8 @@ function App() {
         </div>
       </main>
 
-      <footer className="mt-auto bg-[#000000] px-20 py-6 text-center text-xl text-[#EEEEEE]">
-        <p>All plans are billed per seat, every month.</p>
-      </footer>
+      <Footer />
+      
     </div>
   );
 }
